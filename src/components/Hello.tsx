@@ -1,7 +1,7 @@
 export default function Hello() {
   return (
     <>
-      <h3>hello</h3>
+      <h3 className="bg-mai">hello</h3>
     </>
   );
 }
