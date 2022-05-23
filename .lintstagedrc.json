@@ -1,4 +1,4 @@
 {
   "*.{ts,js}": "tsc",
-  "*.{ts,js,css,md,json,html}": "prettier --write"
+  "*.{ts,js,css,md,json,html}": "npx prettier --write"
 }
