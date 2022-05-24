@@ -8,19 +8,27 @@ export default defineConfig(({ command, mode }) => {
     publicDir: 'src/public',
     envDir: 'env',
     envPrefix: ['VITE_', 'DEV_', 'xxx_'],
-    plugins: ((plugin) => {
+    plugins: (plugin => {
       if (mode === 'production') {
         plugin.push(
           // @ts-ignore
           visualizer({
             open: true,
             gzipSize: true,
-            brotliSize: true
+            brotliSize: true,
           })
         );
       }
       return plugin;
     })([react()]),
+    // resolve: {
+    //   alias: {
+    //     // Here we tell Vite the "fake" modules that we want to define
+    //     '@': path.resolve(__dirname, './src/'),
+    //     '@common': path.resolve(__dirname, './src/common'),
+    //     '@idlFactory': path.resolve(__dirname, './src/idlFactory'),
+    //   },
+    // },
     build: {
       outDir: 'dist',
       cssCodeSplit: true,
@@ -29,34 +37,34 @@ export default defineConfig(({ command, mode }) => {
       terserOptions: {
         compress: {
           drop_console: true,
-          drop_debugger: true
-        }
+          drop_debugger: true,
+        },
       },
       assetsDir: 'assets',
       rollupOptions: {
         output: {
           chunkFileNames: 'assets/js/[name]-[hash].js',
           entryFileNames: 'assets/js/[name]-[hash].js',
-          assetFileNames: 'assets/[ext]/[name]-[hash][extname]'
-        }
-      }
+          assetFileNames: 'assets/[ext]/[name]-[hash][extname]',
+        },
+      },
     },
 
     server: {
       fs: {
-        strict: false
+        strict: false,
       },
       proxy: {
         '/api/v2': {
           target: 'https://ic0.app',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^api\//, '/api/v2/canister')
-        }
-      }
+          rewrite: path => path.replace(/^api\//, '/api/v2/canister'),
+        },
+      },
     },
     define: {
       // dfx rely on this
-      'process.env': {}
-    }
+      'process.env': {},
+    },
   };
 });
