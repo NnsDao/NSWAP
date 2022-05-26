@@ -4,8 +4,24 @@
   /* background-image: url('./static/home_bg.png'); */
   /* transition: background-image, transform 1s;
   transform: scale(0.95); */
+  animation: 3s linear 1s slide infinite;
 }
 .App-content {
   max-width: 1440px;
   margin: 0 auto;
+}
+
+@keyframes slide {
+  0% {
+    /* background-position: top 160px left 0px; */
+    background-size: 100%;
+  }
+  50% {
+    /* background-position: top 160px left -100px; */
+    background-size: 110%;
+  }
+  100% {
+    /* background-position: top 160px left 0px; */
+    background-size: 100%;
+  }
 }
