@@ -1,7 +1,7 @@
 import Brightness7OutlinedIcon from '@mui/icons-material/Brightness7Outlined';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import React from 'react';
 import swapLogo from '../../static/swapLogo.png';
+import SelectToken from './components/selectToken/Index';
 import style from './index.module.css';
 export default function Swap() {
   return (
@@ -15,8 +15,8 @@ export default function Swap() {
     //   </div>
     // </div>
     <div className="flex justify-center pt-105 ">
-      <div className="border-1 bg-secondary  w-617 h-576 px-32 py-36 rounded-16">
-        <div className=" flex justify-between items-center text-29 ">
+      <div className="border-1 bg-secondary  w-463  px-27 py-24 rounded-16">
+        <div className=" flex justify-between items-center text-22  leading-26">
           <span></span>
           <span className="font-bold">Swap</span>
           <Brightness7OutlinedIcon
@@ -24,51 +24,46 @@ export default function Swap() {
             // className={style.settings}
             sx={{ color: '#fff', fontSize: 24 }}></Brightness7OutlinedIcon>
         </div>
-        <div className="pt-35 text-24 font-bold">Swap from</div>
-        <div className="pt-5 pb-17 flex justify-between items-center">
+        <div className="pt-26 pb-4 text-18 leading-22 font-bold">Swap from</div>
+        <div className="pt-4 pb-13 flex justify-between items-center">
           <input
             type="number"
             name="fromNum"
             id="fromNum"
             placeholder="0"
-            className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-35 leading-56 focus:outline-none`}
+            className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
-          <div className="bg-main-btn rounded-36 px-33 py-23 flex justify-between items-center text-21 cursor-pointer">
-            <div className="pr-5">Select a Token</div>
-            <KeyboardArrowDownIcon
-              className="cursor-pointer"
-              sx={{ color: '#fff', fontSize: 24 }}></KeyboardArrowDownIcon>
-          </div>
+          <SelectToken />
         </div>
-        <div className="text-21 pb-31">Balance: &nbsp;&nbsp; 70.42</div>
-        <div className=" w-full h-1 bg-mainGrey relative">
+        <div className="text-16 pb-23">Balance: &nbsp;&nbsp; 70.42</div>
+        <div className="w-full  relative">
+          <div className="h-1 bg-mainGrey opacity-10	"> </div>
           <img
             src={swapLogo}
-            className="absolute right-0 bottom-n32 cursor-pointer "
+            className="absolute right-0 bottom-n24 cursor-pointer  opacity-100"
             alt="swapLogo"
-            width="64px"
-            height="64px"
+            width="48px"
+            height="48px"
           />
         </div>
-        <div className=" text-24 pt-31 font-bold">Swap to</div>
-        <div className="pt-5 pb-17  flex justify-between items-center">
+        <div className="pt-26 pb-4 text-18 leading-22 font-bold">Swap to</div>
+        <div className="pt-4 pb-13 flex justify-between items-center">
           <input
             type="number"
             name="fromNum"
             id="fromNum"
             placeholder="0"
-            className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-35 leading-56 focus:outline-none`}
+            className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
-          <div className="bg-main-btn rounded-36 px-33 py-23 flex justify-between items-center text-21 cursor-pointer">
-            <div className="pr-5">Select a Token</div>
-            <KeyboardArrowDownIcon
-              className="cursor-pointer"
-              sx={{ color: '#fff', fontSize: 24 }}></KeyboardArrowDownIcon>
-          </div>
+
+          <SelectToken />
+
+          {/* <Dialog onClose={handleClose} open={open}>
+          </Dialog> */}
         </div>
-        <div className="text-21">Balance: &nbsp;&nbsp; -</div>
-        <div className="pt-40 pb-36 flex justify-center items-center cursor-pointer">
-          <div className="text-21 rounded-36 text-black py-23 px-168 bg-secondaryGrey">Enter on Amount</div>
+        <div className="text-16 ">Balance: &nbsp;&nbsp; -</div>
+        <div className="pt-30 flex justify-center items-center cursor-pointer">
+          <div className="text-16 rounded-27 text-black py-17 px-126 bg-secondaryGrey">Enter on Amount</div>
         </div>
       </div>
     </div>
