@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
+import Header from './components/Header/Index';
 import AppRouter from './router';
 
 function App() {
-  const [count, setCount] = useState(0);
-  console.log(`canisterType`, process.env);
-  console.log(`import.meta.env`, import.meta.env);
-
   return (
-    <div className="App">
-      <AppRouter></AppRouter>
+    <div className="App bg-main">
+      <div className="App-content">
+        <Header></Header>
+        <AppRouter></AppRouter>
+      </div>
     </div>
   );
 }

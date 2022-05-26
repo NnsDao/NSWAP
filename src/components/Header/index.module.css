@@ -1,0 +1,55 @@
+.nswaplogo {
+  width: 126px;
+  height: 29px;
+}
+
+.header {
+  text-align: center;
+}
+.menuBox {
+  font-size: 18px;
+  font-family: Helvetica;
+  color: #ffffff;
+  padding: 0 30px;
+}
+.menuBox input:checked + .menu {
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+}
+
+.menuBox input:hover + .menu {
+  cursor: pointer;
+}
+.balance {
+  background: #323a5f;
+  border-radius: 19px;
+  font-size: 16px;
+  height: 38px;
+  line-height: 38px;
+  font-family: Helvetica;
+  color: #4d9cb1;
+  padding: 0 13px;
+  cursor: pointer;
+}
+.wallet {
+  cursor: pointer;
+  height: 38px;
+  line-height: 38px;
+  background: #323a5f;
+  border-radius: 19px;
+  padding: 0 15px;
+  font-size: 16px;
+  font-family: Helvetica;
+  color: #a1a8ff;
+  margin-left: 15px;
+}
+.settings {
+  width: 57px;
+  cursor: pointer;
+  height: 38px;
+  line-height: 30px;
+  background: #323a5f;
+  border-radius: 19px;
+  color: #fff;
+  margin-left: 15px;
+}
