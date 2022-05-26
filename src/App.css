@@ -1,8 +1,18 @@
 .App {
   min-height: 100vh;
   background: no-repeat center/100% auto url('./static/home_bg.png');
+  color: #ffffff;
+  font-family: Helvetica;
 }
 .App-content {
   max-width: 1440px;
   margin: 0 auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
 }

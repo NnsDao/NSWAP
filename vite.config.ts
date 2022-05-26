@@ -53,6 +53,7 @@ export default defineConfig(({ command, mode }) => {
     },
 
     server: {
+      hmr: true,
       fs: {
         strict: false,
       },

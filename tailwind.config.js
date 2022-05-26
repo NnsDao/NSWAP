@@ -12,6 +12,8 @@ module.exports = {
     colors: ({ colors }) => ({
       main: '#1A1E3B',
       secondary: '#10152F',
+      mainGrey: '#979797',
+      secondaryGrey: '#2C2F50',
       inherit: colors.inherit,
       current: colors.current,
       transparent: colors.transparent,
@@ -64,6 +66,8 @@ module.exports = {
     },
     spacing: {
       px: '1px',
+      n32: '-32px',
+      0: '0px',
       1: '1px',
       2: '2px',
       3: '3px',
@@ -106,6 +110,9 @@ module.exports = {
       40: '40px',
       41: '41px',
       42: '42px',
+      45: '45px',
+      105: '105px',
+      168: '168px',
       205: '205px',
       419: '419px',
       651: '651px',
@@ -199,6 +206,7 @@ module.exports = {
       8: '8px',
       16: '16px',
       24: '24px',
+      36: '36px',
       full: '50%',
     },
     /*
@@ -390,6 +398,10 @@ module.exports = {
       '2xl': ['22px', { lineHeight: '1' }],
       '3xl': ['24px', { lineHeight: '1' }],
       '4xl': ['26px', { lineHeight: '1' }],
+      21: ['21px', { lineHeight: '1' }],
+      29: ['29px', { lineHeight: '1' }],
+      24: ['24px', { lineHeight: '1' }],
+      35: ['35px', { lineHeight: '1' }],
     },
     fontWeight: {
       normal: '400',
@@ -591,6 +603,7 @@ module.exports = {
       2: '2',
       3: '3',
       4: '4',
+      56: '56px',
     },
     listStyleType: {
       none: 'none',
