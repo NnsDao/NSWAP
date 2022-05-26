@@ -1,6 +1,9 @@
 .App {
   min-height: 100vh;
-  background: no-repeat center/100% auto url('./static/home_bg.png');
+  background: no-repeat top 160px center/100% auto url('./static/home_bg.png');
+  /* background-image: url('./static/home_bg.png'); */
+  /* transition: background-image, transform 1s;
+  transform: scale(0.95); */
 }
 .App-content {
   max-width: 1440px;
