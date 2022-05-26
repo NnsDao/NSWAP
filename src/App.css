@@ -3,6 +3,11 @@
   background: no-repeat center/100% auto url('./static/home_bg.png');
   color: #ffffff;
   font-family: Helvetica;
+  background: no-repeat top 160px center/100% auto url('./static/home_bg.png');
+  /* background-image: url('./static/home_bg.png'); */
+  /* transition: background-image, transform 1s;
+  transform: scale(0.95); */
+  animation: 3s linear 1s slide infinite;
 }
 .App-content {
   max-width: 1440px;
@@ -13,6 +18,21 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-input[type='number'] {
+/* input[type='number'] {
   -moz-appearance: textfield;
+} */
+
+@keyframes slide {
+  0% {
+    /* background-position: top 160px left 0px; */
+    background-size: 100%;
+  }
+  50% {
+    /* background-position: top 160px left -100px; */
+    background-size: 110%;
+  }
+  100% {
+    /* background-position: top 160px left 0px; */
+    background-size: 100%;
+  }
 }
