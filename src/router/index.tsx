@@ -3,7 +3,7 @@ import type { RouteObject } from 'react-router-dom';
 import { useRoutes } from 'react-router-dom';
 import Home from '../pages/Home';
 const Demo = React.lazy(() => import('../components/Demo'));
-const Swap = React.lazy(() => import('../pages/swap'));
+const Swap = React.lazy(() => import('../pages/swap/Index'));
 const Pool = React.lazy(() => import('../pages/pool/Index'));
 const Aboutnswap = React.lazy(() => import('../pages/aboutnswap/Index'));
 const Vote = React.lazy(() => import('../pages/vote/Index'));

@@ -1,5 +1,8 @@
 .App {
   min-height: 100vh;
+  background: no-repeat center/100% auto url('./static/home_bg.png');
+  color: #ffffff;
+  font-family: Helvetica;
   background: no-repeat top 160px center/100% auto url('./static/home_bg.png');
   /* background-image: url('./static/home_bg.png'); */
   /* transition: background-image, transform 1s;
@@ -9,6 +12,17 @@
 .App-content {
   max-width: 1440px;
   margin: 0 auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='text'] {
+  -moz-appearance: textfield;
 }
 
 @keyframes slide {
