@@ -16,9 +16,12 @@
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  -webkit-appearance: none !important;
 }
 input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='text'] {
   -moz-appearance: textfield;
 }
 
