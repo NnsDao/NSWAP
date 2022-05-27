@@ -8,6 +8,7 @@ class Storage {
   }
   set(key: keyof Store, value: any): void {
     Reflect.set(this.store, key, value);
+    this.cacheStore();
   }
   get(key: keyof Store) {
     return Reflect.get(this.store, key);

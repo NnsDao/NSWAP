@@ -15,13 +15,17 @@ export async function stoicLogin() {
     }
     $agent.replaceIdentity(identity);
     storage.set('loginType', 'stoic');
-    identity
+    return identity
       .accounts()
       .then((res: string) => {
-        console.log('stoic address', JSON.parse(res));
+        const addressList = JSON.parse(res);
+        console.log('stoic address', addressList, 'identity', identity.getPrincipal().toText());
+
+        return addressList[0].address;
       })
       .catch((err: any) => {
         console.error('stoic accounts', err);
+        return null;
       });
   });
 }
