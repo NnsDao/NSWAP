@@ -15,6 +15,7 @@ class Storage {
   }
   remove(key: keyof Store): void {
     Reflect.deleteProperty(this.store, key);
+    this.cacheStore();
   }
   cacheStore() {
     requestIdleCallback(

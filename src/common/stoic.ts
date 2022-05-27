@@ -30,8 +30,8 @@ export async function stoicLogin() {
   });
 }
 
-export function stoicLogout() {
+export async function stoicLogout() {
   storage.remove('loginType');
   //Disconnect after
-  StoicIdentity.disconnect();
+  await StoicIdentity.disconnect();
 }

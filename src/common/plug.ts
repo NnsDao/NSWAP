@@ -51,7 +51,7 @@ export async function plugLogin() {
 
 export async function plugLogout() {
   // @ts-ignore
-  await globalThis.ic.plug.disconnect();
+  globalThis.ic.plug.disconnect();
   //Disconnect after
   storage.remove('loginType');
 }
