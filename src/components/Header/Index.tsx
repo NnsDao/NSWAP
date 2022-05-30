@@ -58,7 +58,9 @@ export default function Header() {
   return (
     <>
       <header className={`${style.header} h-100 flex items-center px-50`}>
-        <img src={nswapIcon} alt="nswap logo" className="nswaplogo mr-30" />
+        <Link to={'/'}>
+          <img src={nswapIcon} alt="nswap logo" className={`${style.nswaplogo}  mr-30`} />
+        </Link>
         <Left></Left>
         <div className="flex-1"></div>
         <Button>
