@@ -4,7 +4,7 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { Alert, AlertTitle, Avatar, Button, MenuItem, Snackbar } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useBoolean } from 'usehooks-ts';
 import { plugLogout } from '../../common/plug';
 import { stoicLogout } from '../../common/stoic';
@@ -23,10 +23,6 @@ export default function Header() {
       { item: 'Aboutnswap', route: '/aboutnswap' },
       { item: 'Vote', route: '/vote' },
     ];
-    const navigate = useNavigate();
-    const headerNav = (route: string) => {
-      navigate(route, { replace: true });
-    };
     return (
       <>
         {left.map(({ item, route }) => (
