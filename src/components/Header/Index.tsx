@@ -4,7 +4,7 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { Alert, AlertTitle, Avatar, Button, MenuItem, Snackbar } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useBoolean } from 'usehooks-ts';
 import { plugLogout } from '../../common/plug';
 import { stoicLogout } from '../../common/stoic';
@@ -16,6 +16,8 @@ import style from './index.module.css';
 export default function Header() {
   const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
   const [loginAnchor, setLoginAnchor] = useState(null);
+  const [index, setIndex] = useState(0);
+
   const Left = () => {
     const left = [
       { item: 'Swap', route: '/' },
@@ -23,21 +25,12 @@ export default function Header() {
       { item: 'Aboutnswap', route: '/aboutnswap' },
       { item: 'Vote', route: '/vote' },
     ];
-    const navigate = useNavigate();
-    const headerNav = (route: string) => {
-      navigate(route, { replace: true });
-    };
     return (
       <>
-        {left.map(({ item, route }) => (
-          <Button key={item}>
+        {left.map(({ item, route }, i) => (
+          <Button key={item} onClick={() => setIndex(i)}>
             <Link to={route}>
-              <div className={style.menuBox}>
-                <input type="radio" name="leftMenu" id={item} className="hidden" />
-                <label className={style.menu} htmlFor={item}>
-                  {item}
-                </label>
-              </div>
+              <div className={`${index === i ? style.selectedBox : ''} ${style.menuBox}`}>{item}</div>
             </Link>
           </Button>
         ))}
@@ -62,11 +55,15 @@ export default function Header() {
   return (
     <>
       <header className={`${style.header} h-100 flex items-center px-50`}>
-        <img src={nswapIcon} alt="nswap logo" className="nswaplogo mr-30" />
+        <Link to={'/'}>
+          <img src={nswapIcon} alt="nswap logo" className={`${style.nswaplogo}  mr-30`} />
+        </Link>
         <Left></Left>
         <div className="flex-1"></div>
         <Button>
-          <div className={style.balance}>0 NS</div>
+          <div className={style.balance}>
+            <div className={style.balanceText}>{'0 NS'}</div>
+          </div>
         </Button>
         {isLogin ? (
           <Button id="connected-button" onClick={openLoginMenu}>
