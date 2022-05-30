@@ -16,6 +16,8 @@ import style from './index.module.css';
 export default function Header() {
   const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
   const [loginAnchor, setLoginAnchor] = useState(null);
+  const [index, setIndex] = useState(0);
+
   const Left = () => {
     const left = [
       { item: 'Swap', route: '/' },
@@ -25,15 +27,10 @@ export default function Header() {
     ];
     return (
       <>
-        {left.map(({ item, route }) => (
-          <Button key={item}>
+        {left.map(({ item, route }, i) => (
+          <Button key={item} onClick={() => setIndex(i)}>
             <Link to={route}>
-              <div className={style.menuBox}>
-                <input type="radio" name="leftMenu" id={item} className="hidden" />
-                <label className={style.menu} htmlFor={item}>
-                  {item}
-                </label>
-              </div>
+              <div className={`${index === i ? style.selectedBox : ''} ${style.menuBox}`}>{item}</div>
             </Link>
           </Button>
         ))}
@@ -64,7 +61,9 @@ export default function Header() {
         <Left></Left>
         <div className="flex-1"></div>
         <Button>
-          <div className={style.balance}>0 NS</div>
+          <div className={style.balance}>
+            <div className={style.balanceText}>{'0 NS'}</div>
+          </div>
         </Button>
         {isLogin ? (
           <Button id="connected-button" onClick={openLoginMenu}>
