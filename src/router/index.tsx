@@ -9,7 +9,9 @@ const Swap = React.lazy(() => import('../pages/swap/Index'));
 // const Pool = React.lazy(() => import('../pages/pool/Index'));
 // const Aboutnswap = React.lazy(() => import('../pages/aboutnswap/Index'));
 // const Vote = React.lazy(() => import('../pages/vote/Index'));
-// const Dialog = React.lazy(() => import('../pages/swap/components/selectToken/components/selectDialog/Index'));
+const Import = React.lazy(
+  () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
+);
 export default function AppRouter() {
   const routes: RouteObject[] = [
     {
@@ -30,7 +32,7 @@ export default function AppRouter() {
     },
     {
       path: '/',
-      element: <Swap></Swap>,
+      element: <Import></Import>,
       children: [
         // { index: true, element: <Home /> },
         // {

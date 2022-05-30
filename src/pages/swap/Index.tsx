@@ -1,4 +1,5 @@
 import Brightness7OutlinedIcon from '@mui/icons-material/Brightness7Outlined';
+import { Button } from '@mui/material';
 import React from 'react';
 import swapLogo from '../../static/swapLogo.png';
 import SelectToken from './components/selectToken/Index';
@@ -33,7 +34,9 @@ export default function Swap() {
             placeholder="0"
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
-          <SelectToken />
+          <Button>
+            <SelectToken />
+          </Button>
         </div>
         <div className="text-16 pb-23">Balance: &nbsp;&nbsp; 70.42</div>
         <div className="w-full  relative">
@@ -55,9 +58,9 @@ export default function Swap() {
             placeholder="0"
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
-
-          <SelectToken />
-
+          <Button>
+            <SelectToken />
+          </Button>
           {/* <Dialog onClose={handleClose} open={open}>
           </Dialog> */}
         </div>
