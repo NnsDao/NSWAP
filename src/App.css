@@ -24,6 +24,11 @@ input[type='number'] {
 input[type='text'] {
   -moz-appearance: textfield;
 }
+.gradientText {
+  background: linear-gradient(225deg, #32c5ff 0%, #b620e0 51%, #f7b500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 @keyframes slide {
   0% {
