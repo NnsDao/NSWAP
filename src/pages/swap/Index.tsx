@@ -1,4 +1,5 @@
 import Brightness7OutlinedIcon from '@mui/icons-material/Brightness7Outlined';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { Button } from '@mui/material';
 import React from 'react';
 import swapLogo from '../../static/swapLogo.png';
@@ -15,8 +16,8 @@ export default function Swap() {
     //     <input type="number" name="fromNum" id="fromNum" />
     //   </div>
     // </div>
-    <div className="flex justify-center pt-105 ">
-      <div className="border-1 bg-secondary  w-463  px-27 py-24 rounded-16">
+    <div className="pt-105 ">
+      <div className="border-1 bg-secondary mx-auto w-463  px-27 py-24 rounded-16">
         <div className=" flex justify-between items-center text-22  leading-26">
           <span></span>
           <span className="font-bold">Swap</span>
@@ -31,7 +32,7 @@ export default function Swap() {
             type="number"
             name="fromNum"
             id="fromNum"
-            placeholder="0"
+            placeholder="0.00"
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
           <Button>
@@ -55,7 +56,7 @@ export default function Swap() {
             type="number"
             name="fromNum"
             id="fromNum"
-            placeholder="0"
+            placeholder="0.00"
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
           <Button>
@@ -68,6 +69,36 @@ export default function Swap() {
         <div className="pt-30 flex justify-center items-center cursor-pointer">
           <div className="text-16 rounded-27 text-black py-17 px-126 bg-secondaryGrey">Enter on Amount</div>
         </div>
+      </div>
+      <div className="w-463 mx-auto px-24 py-20">
+        <div className="flex justify-between items-center mb-14">
+          <div className="flex flex-row">
+            <div className="text-19 mr-12 text-gray-400">Minimum receieved</div>
+            <div>
+              <HelpOutlineIcon className="cursor-pointer" sx={{ color: '#9799A5', fontSize: 14 }}></HelpOutlineIcon>
+            </div>
+          </div>
+          <div className="text-white">9.74 NDP</div>
+        </div>
+        <div className="flex justify-between items-center mb-14">
+          <div className="flex flex-row">
+            <div className="text-19 mr-12 text-gray-400">Price Impact</div>
+            <div>
+              <HelpOutlineIcon className="cursor-pointer" sx={{ color: '#9799A5', fontSize: 14 }}></HelpOutlineIcon>
+            </div>
+          </div>
+          <div> {'< 0.01%'}</div>
+        </div>
+        <div className="flex justify-between items-center mb-14">
+          <div className="flex flex-row">
+            <div className="text-19 mr-12 text-gray-400">Liquidity Provider Fee</div>
+            <div>
+              <HelpOutlineIcon className="cursor-pointer" sx={{ color: '#9799A5', fontSize: 14 }}></HelpOutlineIcon>
+            </div>
+          </div>
+          <div>0.000066 ICP</div>
+        </div>
+        <div className="gradientText text-center cursor-pointer">View Pair Analytics</div>
       </div>
     </div>
   );

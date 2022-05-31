@@ -4,7 +4,6 @@ import { useRoutes } from 'react-router-dom';
 import Aboutnswap from '../pages/aboutnswap/Index';
 import Home from '../pages/Home';
 import Pool from '../pages/pool/Index';
-import Manager from '../pages/swap/components/selectToken/components/manager/Index';
 import Vote from '../pages/vote/Index';
 const Swap = React.lazy(() => import('../pages/swap/Index'));
 // const Pool = React.lazy(() => import('../pages/pool/Index'));
@@ -13,6 +12,7 @@ const Swap = React.lazy(() => import('../pages/swap/Index'));
 const Import = React.lazy(
   () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
 );
+const ConfirmSwap = React.lazy(() => import('../pages/swap/components/selectToken/components/confirmSwap/Index'));
 export default function AppRouter() {
   const routes: RouteObject[] = [
     {
@@ -33,7 +33,7 @@ export default function AppRouter() {
     },
     {
       path: '/',
-      element: <Manager></Manager>,
+      element: <ConfirmSwap></ConfirmSwap>,
       children: [
         // { index: true, element: <Home /> },
         // {

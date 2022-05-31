@@ -421,6 +421,7 @@ module.exports = {
       26: ['26px', { lineHeight: '1' }],
       29: ['29px', { lineHeight: '1' }],
       24: ['24px', { lineHeight: '1' }],
+      34: ['34px', { lineHeight: '1' }],
       35: ['35px', { lineHeight: '1' }],
       42: ['42px', { lineHeight: '1' }],
     },

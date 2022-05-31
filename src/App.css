@@ -15,7 +15,7 @@
 }
 
 input[type='radio' i]:focus-visible {
-  outline-offset: 0px;
+  outline-offset: 0px !important;
 }
 
 input::-webkit-outer-spin-button,
