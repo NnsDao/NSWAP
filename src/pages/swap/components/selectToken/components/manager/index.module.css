@@ -1,0 +1,25 @@
+.menuBox {
+  font-size: 18px;
+  font-family: Helvetica;
+  color: #424247;
+  line-height: 22px;
+  margin: 0 10px;
+}
+.menuBox:hover {
+  cursor: pointer;
+}
+.selectedBox {
+  position: relative;
+  color: #ffffff;
+}
+.selectedBox::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 0;
+  bottom: 0px;
+  left: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: #ffffff;
+}
