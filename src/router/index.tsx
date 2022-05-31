@@ -12,6 +12,7 @@ const Swap = React.lazy(() => import('../pages/swap/Index'));
 // const Import = React.lazy(
 //   () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
 // );
+const Exact = React.lazy(() => import('../pages/swap/components/exactToken/Index'));
 const ConfirmSwap = React.lazy(() => import('../pages/swap/components/confirmSwap/Index'));
 export default function AppRouter() {
   const routes: RouteObject[] = [
@@ -33,67 +34,19 @@ export default function AppRouter() {
     },
     {
       path: '/',
-      element: <ConfirmSwap></ConfirmSwap>,
-      children: [
-        // { index: true, element: <Home /> },
-        // {
-        //   path: "/courses",
-        //   element: <Courses />,
-        //   children: [
-        //     { index: true, element: <CoursesIndex /> },
-        //     { path: "/courses/:id", element: <Course /> },
-        //   ],
-        // },
-        // { path: "*", element: <NoMatch /> },
-      ],
+      element: <Exact></Exact>,
     },
     {
       path: '/pool',
       element: <Pool></Pool>,
-      children: [
-        // { index: true, element: <Home /> },
-        // {
-        //   path: "/courses",
-        //   element: <Courses />,
-        //   children: [
-        //     { index: true, element: <CoursesIndex /> },
-        //     { path: "/courses/:id", element: <Course /> },
-        //   ],
-        // },
-        // { path: "*", element: <NoMatch /> },
-      ],
     },
     {
       path: '/aboutnswap',
       element: <Aboutnswap></Aboutnswap>,
-      children: [
-        // { index: true, element: <Home /> },
-        // {
-        //   path: "/courses",
-        //   element: <Courses />,
-        //   children: [
-        //     { index: true, element: <CoursesIndex /> },
-        //     { path: "/courses/:id", element: <Course /> },
-        //   ],
-        // },
-        // { path: "*", element: <NoMatch /> },
-      ],
     },
     {
       path: '/vote',
       element: <Vote></Vote>,
-      children: [
-        // { index: true, element: <Home /> },
-        // {
-        //   path: "/courses",
-        //   element: <Courses />,
-        //   children: [
-        //     { index: true, element: <CoursesIndex /> },
-        //     { path: "/courses/:id", element: <Course /> },
-        //   ],
-        // },
-        // { path: "*", element: <NoMatch /> },
-      ],
     },
   ];
   return useRoutes(routes);
