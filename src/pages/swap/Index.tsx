@@ -7,15 +7,6 @@ import SelectToken from './components/selectToken/Index';
 import style from './index.module.css';
 export default function Swap() {
   return (
-    // <div className={`${style.swap} mt-60 bg-secondary`}>
-    //   <div className={`${style.header}`}>
-
-    //   </div>
-    //   <div className={style.from}>Swap from</div>
-    //   <div className={style.fromInput}>
-    //     <input type="number" name="fromNum" id="fromNum" />
-    //   </div>
-    // </div>
     <div className="pt-105 ">
       <div className="border-1 bg-secondary mx-auto w-463  px-27 py-24 rounded-16">
         <div className=" flex justify-between items-center text-22  leading-26">
@@ -23,7 +14,6 @@ export default function Swap() {
           <span className="font-bold">Swap</span>
           <Brightness7OutlinedIcon
             className="cursor-pointer"
-            // className={style.settings}
             sx={{ color: '#fff', fontSize: 24 }}></Brightness7OutlinedIcon>
         </div>
         <div className="pt-26 pb-4 text-18 leading-22 font-bold">Swap from</div>

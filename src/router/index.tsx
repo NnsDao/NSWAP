@@ -9,10 +9,10 @@ const Swap = React.lazy(() => import('../pages/swap/Index'));
 // const Pool = React.lazy(() => import('../pages/pool/Index'));
 // const Aboutnswap = React.lazy(() => import('../pages/aboutnswap/Index'));
 // const Vote = React.lazy(() => import('../pages/vote/Index'));
-const Import = React.lazy(
-  () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
-);
-const ConfirmSwap = React.lazy(() => import('../pages/swap/components/selectToken/components/confirmSwap/Index'));
+// const Import = React.lazy(
+//   () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
+// );
+const ConfirmSwap = React.lazy(() => import('../pages/swap/components/confirmSwap/Index'));
 export default function AppRouter() {
   const routes: RouteObject[] = [
     {
