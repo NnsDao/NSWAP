@@ -33,7 +33,9 @@ input[type='text'] {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.MuiButtonBase-root-MuiButton-root {
+  text-transform: none !important;
+}
 @keyframes slide {
   0% {
     /* background-position: top 160px left 0px; */
