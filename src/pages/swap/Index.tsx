@@ -2,10 +2,14 @@ import Brightness7OutlinedIcon from '@mui/icons-material/Brightness7Outlined';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { Button } from '@mui/material';
 import React from 'react';
+import { useBoolean } from 'usehooks-ts';
 import swapLogo from '../../static/swapLogo.png';
-import SelectToken from './components/selectToken/Index';
+import SelectButton from './components/selectButton/Index';
+import SelectDialog from './components/selectDialog/Index';
 import style from './index.module.css';
 export default function Swap() {
+  const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
+
   return (
     <div className="pt-105 ">
       <div className="border-1 bg-secondary mx-auto w-463  px-27 py-24 rounded-16">
@@ -13,7 +17,7 @@ export default function Swap() {
           <span></span>
           <span className="font-bold">Swap</span>
           <Brightness7OutlinedIcon
-            className="cursor-pointer"
+            className="cursor-not-allowed"
             sx={{ color: '#fff', fontSize: 24 }}></Brightness7OutlinedIcon>
         </div>
         <div className="pt-26 pb-4 text-18 leading-22 font-bold">Swap from</div>
@@ -26,7 +30,7 @@ export default function Swap() {
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
           <Button>
-            <SelectToken />
+            <SelectButton onClick={() => toggleOpen()} />
           </Button>
         </div>
         <div className="text-16 pb-23">Balance: &nbsp;&nbsp; 70.42</div>
@@ -34,7 +38,7 @@ export default function Swap() {
           <div className="h-1 bg-mainGrey opacity-10	"> </div>
           <img
             src={swapLogo}
-            className="absolute right-0 bottom-n24 cursor-pointer  opacity-100"
+            className="absolute right-0 bottom-n24 cursor-pointer  opacity-100 hover:scale-110"
             alt="swapLogo"
             width="48px"
             height="48px"
@@ -50,7 +54,7 @@ export default function Swap() {
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
           <Button>
-            <SelectToken />
+            <SelectButton onClick={() => toggleOpen()} />
           </Button>
           {/* <Dialog onClose={handleClose} open={open}>
           </Dialog> */}
@@ -90,6 +94,7 @@ export default function Swap() {
         </div>
         <div className="gradientText text-center cursor-pointer">View Pair Analytics</div>
       </div>
+      <SelectDialog isOpen={isOpen} toggleOpen={toggleOpen}></SelectDialog>
     </div>
   );
 }

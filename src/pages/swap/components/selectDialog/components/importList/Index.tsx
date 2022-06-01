@@ -6,7 +6,7 @@ type Prop = {
 };
 export default function ImportList(props: Prop) {
   return (
-    <div className="h-387 overflow-auto">
+    <div className="h-576 overflow-auto">
       {props.data.map(item => (
         <div key={item} className="bg-lowColor mb-10 px-10 py-13 rounded-8  flex justify-between items-center ">
           <div className="flex items-center">

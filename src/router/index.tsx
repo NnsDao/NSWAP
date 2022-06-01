@@ -34,7 +34,7 @@ export default function AppRouter() {
     },
     {
       path: '/',
-      element: <Exact></Exact>,
+      element: <Swap></Swap>,
     },
     {
       path: '/pool',

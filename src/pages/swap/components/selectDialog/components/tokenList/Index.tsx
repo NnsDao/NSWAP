@@ -3,15 +3,18 @@ import React from 'react';
 
 type Prop = {
   data: any[];
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  onClose: Function;
 };
 export default function TokenList(props: Prop) {
   return (
-    <div>
+    <div className=" overflow-auto">
       {props.data.map(item => (
         <div
           key={item}
-          className="bg-main-grounding mb-10 rounded-8 w-414 h-74 px-1 py-1 flex justify-center items-center text-18">
-          <div className="w-full rounded-8 bg-lowColor  px-10 py-16 flex justify-between items-center">
+          onClick={() => props.onClose(item)}
+          className={`${'hover:bg-main-grounding cursor-pointer'} mb-10 rounded-8  h-74 px-1 py-1  flex justify-center items-center text-18 text-white`}>
+          <div className=" w-full  rounded-8 bg-lowColor  px-10 py-16 flex justify-between items-center">
             <div className=" flex justify-between items-center">
               <div className="pr-14">
                 <Avatar alt="Remy Sharp" src="" />

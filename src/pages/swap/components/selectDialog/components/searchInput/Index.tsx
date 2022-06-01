@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function SearchInput(props: any) {
   return (
-    <div className="pb-30 relative bg-secondary rounded-8">
+    <div className=" pb-30 relative bg-secondary rounded-8">
       <input
         type="text"
         placeholder="Search name or paste address"
