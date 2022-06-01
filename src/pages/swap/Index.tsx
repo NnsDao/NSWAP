@@ -11,17 +11,20 @@ import ConfirmSwap from './components/confirmSwap/Index';
 import SelectButton from './components/selectButton/Index';
 import SelectDialog from './components/selectDialog/Index';
 import style from './index.module.css';
+import SwapState, { useSwapState } from './SelectTokenState';
 
-export default function Swap() {
+export function Swap() {
   const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
   const { value: isOpenWallet, toggle: toggleOpenWallet } = useBoolean(false);
   const { value: isOpenConfirm, toggle: toggleOpenConfirm } = useBoolean(false);
-  const [{ address, isLogin, loginType }, dispatch] = useGlobalState();
+  const [{ address, isLogin, loginType }] = useGlobalState();
+  const [swapState, dispatch] = useSwapState();
 
   const [fromToken, setFromToken] = useState(null);
   const [fromInput, setFromInput] = useState<string>('');
   const [toToken, setToToken] = useState(null);
   const [toInput, setToInput] = useState<string>('');
+
   const swapToken = () => {
     console.log('swapToken');
   };
@@ -64,7 +67,12 @@ export default function Swap() {
             </div>
           ) : (
             <Button>
-              <SelectButton onClick={() => toggleOpen()} />
+              <SelectButton
+                onClick={() => {
+                  dispatch({ type: 'selectToken', value: setFromToken });
+                  toggleOpen();
+                }}
+              />
             </Button>
           )}
         </div>
@@ -103,7 +111,12 @@ export default function Swap() {
             </div>
           ) : (
             <Button>
-              <SelectButton onClick={() => toggleOpen()} />
+              <SelectButton
+                onClick={() => {
+                  dispatch({ type: 'selectToken', value: setToToken });
+                  toggleOpen();
+                }}
+              />
             </Button>
           )}
         </div>
@@ -155,5 +168,13 @@ export default function Swap() {
       <ConfirmSwap isOpen={isOpenConfirm} toggleOpen={toggleOpenConfirm}></ConfirmSwap>
       <WalletSelector isOpen={isOpenWallet} toggleOpen={toggleOpenWallet}></WalletSelector>
     </div>
+  );
+}
+
+export default function SwapWrapper() {
+  return (
+    <SwapState>
+      <Swap></Swap>
+    </SwapState>
   );
 }

@@ -25,7 +25,6 @@ const reducer = (state: typeof initialState, action: { type: any; isLogin?: any;
       };
   }
 };
-
 // @ts-ignore
 const GlobalStateProvider = ({ children }) => {
   return <StateContext.Provider value={useReducer(reducer, initialState)}>{children}</StateContext.Provider>;

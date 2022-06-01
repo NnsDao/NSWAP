@@ -1,10 +1,12 @@
 import CloseSharpIcon from '@mui/icons-material/CloseSharp';
 import { Modal } from '@mui/material';
 import React from 'react';
+import { useSwapState } from '../../SelectTokenState';
 import SearchInput from './components/searchInput/Index';
 import TokenList from './components/tokenList/Index';
 export default function SelectDialog(props: Prop) {
   const { isOpen, toggleOpen } = props;
+  const [swapState, dispatch] = useSwapState();
   const data = [1, 2, 3, 4, 5, 6, 7];
   const onCloseSelector = (val?: any) => {
     console.log(val);
@@ -26,7 +28,13 @@ export default function SelectDialog(props: Prop) {
         {/* <ImportInput /> */}
         <SearchInput />
         {/* <ImportList data={data} /> */}
-        <TokenList data={data} onClose={(val: any) => onCloseSelector(val)} />
+        <TokenList
+          data={data}
+          onClose={(val: any) => {
+            swapState.selectToken(val);
+            onCloseSelector(val);
+          }}
+        />
         {/* <div className="w-387 m-auto absolute py-13 bottom-30 left-38 flex justify-center items-center cursor-pointer bg-secondaryGrey rounded-27">
           <img src={manager} alt="manager" width={'28px'} className="mr-12" />
           <span className="gradientText">Manager</span>

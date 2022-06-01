@@ -12,7 +12,9 @@ export default function TokenList(props: Prop) {
       {props.data.map(item => (
         <div
           key={item}
-          onClick={() => props.onClose(item)}
+          onClick={() => {
+            props.onClose(item);
+          }}
           className={`${'hover:bg-main-grounding cursor-pointer'} mb-10 rounded-8  h-74 px-1 py-1  flex justify-center items-center text-18 text-white`}>
           <div className=" w-full  rounded-8 bg-lowColor  px-10 py-16 flex justify-between items-center">
             <div className=" flex justify-between items-center">
