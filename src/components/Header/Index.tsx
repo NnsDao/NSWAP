@@ -9,10 +9,11 @@ import { useBoolean } from 'usehooks-ts';
 import { plugLogout } from '../../common/plug';
 import { stoicLogout } from '../../common/stoic';
 import { useGlobalState } from '../../hooks/globalState';
+import plug from '../../public/plug.png';
+import stoic from '../../public/stoic.png';
 import nswapIcon from '../../static/nswap.png';
 import WalletSelector from '../WalletSelector';
 import style from './index.module.css';
-
 export default function Header() {
   const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
   const [loginAnchor, setLoginAnchor] = useState(null);
@@ -39,15 +40,15 @@ export default function Header() {
   };
 
   const [{ address, isLogin, loginType }, dispatch] = useGlobalState();
-  const getAvatar = () => {
-    if (loginType === 'stoic') {
-      return '/stoic.png';
-    }
-    if (loginType === 'plug') {
-      return '/plug.png';
-    }
-    return '';
-  };
+  // const getAvatar = () => {
+  //   if (loginType === 'stoic') {
+  //     return '/stoic.png';
+  //   }
+  //   if (loginType === 'plug') {
+  //     return '/plug.png';
+  //   }
+  //   return '';
+  // };
   // @ts-ignore
   const openLoginMenu = e => {
     setLoginAnchor(e.currentTarget);
@@ -67,9 +68,9 @@ export default function Header() {
         </Button>
         {isLogin ? (
           <Button id="connected-button" onClick={openLoginMenu}>
-            <div className={`${style.wallet} flex`}>
-              <Avatar alt="Logo" src={getAvatar()} />
-              <span>{address.slice(0, 4) + '...' + address.slice(-4)}</span>
+            <div className={`${style.wallet} flex items-center`}>
+              <Avatar alt="Logo" sx={{ width: 24, height: 24 }} src={loginType === 'stoic' ? stoic : plug} />
+              <span className="ml-8">{address.slice(0, 4) + '...' + address.slice(-4)}</span>
             </div>
           </Button>
         ) : (
