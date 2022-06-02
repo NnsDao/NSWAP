@@ -23,8 +23,9 @@ export default function Header() {
     const left = [
       { item: 'Swap', route: '/' },
       { item: 'Pool', route: '/pool' },
-      { item: 'Aboutnswap', route: '/aboutnswap' },
-      { item: 'Vote', route: '/vote' },
+      // { item: 'FAQs', route: '/faqs' },
+      { item: 'Activity', route: '/activity' },
+      { item: 'subDAO', route: '/vote' },
     ];
     return (
       <>

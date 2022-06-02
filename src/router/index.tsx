@@ -1,13 +1,13 @@
 import React from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { useRoutes } from 'react-router-dom';
-import Aboutnswap from '../pages/aboutnswap/Index';
+import Faqs from '../pages/faqs/Index';
 import Home from '../pages/Home';
 import Pool from '../pages/pool/Index';
 import Vote from '../pages/vote/Index';
 const Swap = React.lazy(() => import('../pages/swap/Index'));
 // const Pool = React.lazy(() => import('../pages/pool/Index'));
-// const Aboutnswap = React.lazy(() => import('../pages/aboutnswap/Index'));
+// const faqs = React.lazy(() => import('../pages/faqs/Index'));
 // const Vote = React.lazy(() => import('../pages/vote/Index'));
 // const Import = React.lazy(
 //   () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
@@ -41,8 +41,8 @@ export default function AppRouter() {
       element: <Pool></Pool>,
     },
     {
-      path: '/aboutnswap',
-      element: <Aboutnswap></Aboutnswap>,
+      path: '/faqs',
+      element: <Faqs></Faqs>,
     },
     {
       path: '/vote',
