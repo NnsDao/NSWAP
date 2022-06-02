@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useBoolean } from 'usehooks-ts';
 import { plugLogin } from '../../common/plug';
 import { stoicLogin } from '../../common/stoic';
+import { getUserICP } from '../../common/utils';
 import { useGlobalState } from '../../hooks/globalState';
 import style from './index.module.css';
 
@@ -24,6 +25,7 @@ export default function WalletSelector(props: PropsType) {
     const params = walletList[selecteDIndex];
     loginLoading.setTrue();
     let address = '';
+    let userICP = BigInt(0);
     try {
       if (params.id === 'stoic') {
         const res = await stoicLogin();
@@ -41,8 +43,9 @@ export default function WalletSelector(props: PropsType) {
     } else {
       connectErr.setFalse();
     }
+    address && (userICP = await getUserICP(address));
     loginLoading.setFalse();
-    dispatch({ type: 'changeLogin', isLogin: true, address, loginType: params.id });
+    dispatch({ type: 'changeLogin', isLogin: true, address, loginType: params.id, userICP: userICP });
     toggleOpen();
   };
   const Loading = () => {

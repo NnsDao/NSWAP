@@ -7,6 +7,10 @@
     <title>NSwap</title>
   </head>
   <body>
+    <script type="module">
+      import fetch from 'cross-fetch';
+      window.global = window;
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

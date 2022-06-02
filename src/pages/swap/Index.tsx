@@ -2,8 +2,9 @@ import Brightness7OutlinedIcon from '@mui/icons-material/Brightness7Outlined';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Avatar, Button } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useBoolean } from 'usehooks-ts';
+import { getExchange } from '../../common/utils';
 import WalletSelector from '../../components/WalletSelector';
 import { useGlobalState } from '../../hooks/globalState';
 import swapLogo from '../../static/swapLogo.png';
@@ -17,9 +18,9 @@ export function Swap() {
   const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
   const { value: isOpenWallet, toggle: toggleOpenWallet } = useBoolean(false);
   const { value: isOpenConfirm, toggle: toggleOpenConfirm } = useBoolean(false);
-  const [{ address, isLogin, loginType }] = useGlobalState();
+  const [{ address, isLogin, loginType, userICP }] = useGlobalState();
   const [swapState, dispatch] = useSwapState();
-
+  const [exChange, setExChange] = useState(0);
   const [fromToken, setFromToken] = useState(null);
   const [fromInput, setFromInput] = useState<string>('');
   const [toToken, setToToken] = useState(null);
@@ -34,6 +35,13 @@ export function Swap() {
       toggleOpenConfirm();
     }
   };
+  const getICPExchange = async () => {
+    const exChange = await getExchange();
+    setExChange(exChange);
+  };
+  useEffect(() => {
+    // getICPExchange();
+  }, []);
   return (
     <div className="pt-105 ">
       <div className="border-1 bg-secondary mx-auto w-463  px-27 py-24 rounded-16">
@@ -56,7 +64,12 @@ export function Swap() {
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
           {fromToken ? (
-            <div className="flex justify-center items-center">
+            <div
+              className="flex justify-center items-center cursor-pointer"
+              onClick={() => {
+                dispatch({ type: 'selectToken', value: setFromToken });
+                toggleOpen();
+              }}>
               <div className="pr-8">
                 <Avatar alt="Remy Sharp" src="" />
               </div>
@@ -76,7 +89,7 @@ export function Swap() {
             </Button>
           )}
         </div>
-        <div className="text-16 pb-23">Balance: &nbsp;&nbsp; 70.42</div>
+        <div className="text-16 pb-23">Balance: &nbsp;&nbsp; ${(Number(userICP) / 1e8) * exChange} </div>
         <div className="w-full  relative ">
           <div className="h-1 bg-mainGrey opacity-10	"> </div>
           <img
@@ -100,7 +113,12 @@ export function Swap() {
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
           {toToken ? (
-            <div className="flex justify-center items-center">
+            <div
+              className="flex justify-center items-center cursor-pointer"
+              onClick={() => {
+                dispatch({ type: 'selectToken', value: setToToken });
+                toggleOpen();
+              }}>
               <div className="pr-8">
                 <Avatar alt="Remy Sharp" src="" />
               </div>
@@ -121,17 +139,21 @@ export function Swap() {
           )}
         </div>
         <div className="text-16 ">Balance: &nbsp;&nbsp; -</div>
-        {isLogin ? (
+        {isLogin && fromInput && toInput ? (
           <div className="pt-30 flex justify-center items-center cursor-pointer" onClick={() => openConfirm()}>
             <div className="text-16 rounded-27 py-17 px-170 bg-main-btn">Swap</div>
           </div>
+        ) : isLogin && (!fromInput || !toInput) ? (
+          <div className="pt-30 flex justify-center  items-center cursor-not-allowed">
+            <div className="text-16 rounded-27 text-black py-17 px-140 bg-secondaryGrey">Select Token</div>
+          </div>
         ) : (
           <div className="pt-30 flex justify-center items-center cursor-pointer" onClick={toggleOpenWallet}>
-            <div className="text-16 rounded-27 text-black py-17 px-126 bg-secondaryGrey">Enter on Amount</div>
+            <div className="text-16 rounded-27 text-black py-17 px-126 bg-secondaryGrey">Connet to Wallet</div>
           </div>
         )}
       </div>
-      {isLogin && fromInput !== '' && toInput !== '' ? (
+      {isLogin && fromInput && toInput ? (
         <div className="w-463 mx-auto px-24 py-20">
           <div className="flex justify-between items-center mb-14">
             <div className="flex flex-row">

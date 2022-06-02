@@ -39,7 +39,7 @@ export default function Header() {
     );
   };
 
-  const [{ address, isLogin, loginType }, dispatch] = useGlobalState();
+  const [{ address, isLogin, loginType, userICP }, dispatch] = useGlobalState();
   // const getAvatar = () => {
   //   if (loginType === 'stoic') {
   //     return '/stoic.png';
@@ -53,6 +53,8 @@ export default function Header() {
   const openLoginMenu = e => {
     setLoginAnchor(e.currentTarget);
   };
+  console.log(userICP);
+
   return (
     <>
       <header className={`${style.header} h-100 flex items-center px-50`}>
@@ -63,7 +65,7 @@ export default function Header() {
         <div className="flex-1"></div>
         <Button>
           <div className={style.balance}>
-            <div className={style.balanceText}>{'0 NS'}</div>
+            <div className={style.balanceText}>{Number(userICP) / 1e8} ICP</div>
           </div>
         </Button>
         {isLogin ? (
@@ -97,7 +99,7 @@ export default function Header() {
 }
 
 const LoginAction = (props: LoginActionProps) => {
-  const [{ address, isLogin, loginType }, dispatch] = useGlobalState();
+  const [{ address, isLogin, loginType, userICP }, dispatch] = useGlobalState();
   const toast = useBoolean(false);
   const [toastMsg, setToastMsg] = useState('');
   const logout = async () => {
@@ -109,7 +111,7 @@ const LoginAction = (props: LoginActionProps) => {
       await plugLogout();
     }
     console.log(`logout`);
-    dispatch({ type: 'changeLogin', isLogin: false, address: '' });
+    dispatch({ type: 'changeLogin', isLogin: false, address: '', userICP: BigInt(0) });
     toast.setTrue();
     setToastMsg('Logged out');
     props.close();

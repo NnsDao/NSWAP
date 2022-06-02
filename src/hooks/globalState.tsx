@@ -5,17 +5,19 @@ const initialState = {
   isLogin: false,
   address: '',
   loginType: storage.get('loginType'),
+  userICP: BigInt(0),
   count: 0,
 };
 const StateContext = createContext(null as any);
 
-const reducer = (state: typeof initialState, action: { type: any; isLogin?: any; address?: any }) => {
+const reducer = (state: typeof initialState, action: { type: any; isLogin?: any; address?: any; userICP?: bigint }) => {
   switch (action.type) {
     case 'changeLogin':
       return {
         ...state,
         isLogin: action.isLogin,
         address: action.address,
+        userICP: action.userICP,
       };
 
     default:
