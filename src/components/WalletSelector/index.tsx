@@ -19,7 +19,7 @@ export default function WalletSelector(props: PropsType) {
 
   const loginLoading = useBoolean(false);
   const connectErr = useBoolean(false);
-  const [{ isLogin, address }, dispatch] = useGlobalState();
+  const [{ isLogin, address, loginType }, dispatch] = useGlobalState();
 
   const login = async () => {
     const params = walletList[selecteDIndex];
@@ -45,7 +45,7 @@ export default function WalletSelector(props: PropsType) {
     }
     address && (userICP = await getUserICP(address));
     loginLoading.setFalse();
-    dispatch({ type: 'changeLogin', isLogin: true, address, loginType: params.id, userICP: userICP });
+    dispatch({ type: 'changeLogin', isLogin: true, address: address, loginType: params.id, userICP: userICP });
     toggleOpen();
   };
   const Loading = () => {

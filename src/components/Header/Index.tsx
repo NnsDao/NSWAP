@@ -72,7 +72,11 @@ export default function Header() {
         {isLogin ? (
           <Button id="connected-button" onClick={openLoginMenu}>
             <div className={`${style.wallet} flex items-center`}>
-              <Avatar alt="Logo" sx={{ width: 24, height: 24 }} src={loginType === 'stoic' ? stoic : plug} />
+              <Avatar
+                alt="Logo"
+                sx={{ width: 24, height: 24 }}
+                src={loginType === 'stoic' ? stoic : loginType === 'plug' ? plug : ''}
+              />
               <span className="ml-8">{address.slice(0, 4) + '...' + address.slice(-4)}</span>
             </div>
           </Button>
@@ -112,7 +116,9 @@ const LoginAction = (props: LoginActionProps) => {
       await plugLogout();
     }
     console.log(`logout`);
-    dispatch({ type: 'changeLogin', isLogin: false, address: '', userICP: BigInt(0) });
+    dispatch({ type: 'changeLogin', loginType: '', isLogin: false, address: '', userICP: BigInt(0) });
+    console.log(loginType, 'loginType');
+
     toast.setTrue();
     setToastMsg('Logged out');
     props.close();

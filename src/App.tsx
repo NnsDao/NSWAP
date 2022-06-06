@@ -10,6 +10,8 @@ import AppRouter from './router';
 function App() {
   const [{ loginType }, dispatch] = useGlobalState();
   const autoLogin = async () => {
+    console.log(loginType, 'loginType   00');
+
     if (loginType) {
       let address = '';
       let userICP = BigInt(0);
