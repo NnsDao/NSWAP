@@ -5,6 +5,7 @@ import { Avatar, Button } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useBoolean } from 'usehooks-ts';
 import { getExchange } from '../../common/utils';
+import Message from '../../components/message/Index';
 import WalletSelector from '../../components/WalletSelector';
 import { useGlobalState } from '../../hooks/globalState';
 import swapLogo from '../../static/swapLogo.png';
@@ -13,7 +14,6 @@ import SelectButton from './components/selectButton/Index';
 import SelectDialog from './components/selectDialog/Index';
 import style from './index.module.css';
 import SwapState, { useSwapState } from './SelectTokenState';
-
 export function Swap() {
   const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
   const { value: isOpenWallet, toggle: toggleOpenWallet } = useBoolean(false);
@@ -25,9 +25,15 @@ export function Swap() {
   const [fromInput, setFromInput] = useState<string>('');
   const [toToken, setToToken] = useState(null);
   const [toInput, setToInput] = useState<string>('');
-
+  const toast = useBoolean(false);
+  const [toastMsg, setToastMsg] = useState('');
   const swapToken = () => {
-    console.log('swapToken');
+    if (fromInput && toInput) {
+      setFromToken(toToken);
+      setFromInput(toInput);
+      setToToken(fromToken);
+      setToInput(fromInput);
+    }
   };
   const openConfirm = () => {
     //todo  price
@@ -38,6 +44,28 @@ export function Swap() {
   const getICPExchange = async () => {
     const exChange = await getExchange();
     setExChange(exChange);
+  };
+  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>, type: string) => {
+    switch (type) {
+      case 'fromInput':
+        if (fromToken) {
+          setFromInput(e.target.value);
+        } else {
+          toast.setTrue();
+          setToastMsg('Select Token!');
+          toast.setFalse;
+        }
+        break;
+      case 'toInput':
+        if (toToken) {
+          setToInput(e.target.value);
+        } else {
+          toast.setTrue();
+          setToastMsg('Select Token!');
+          toast.setFalse;
+        }
+        break;
+    }
   };
   useEffect(() => {
     // getICPExchange();
@@ -59,7 +87,7 @@ export function Swap() {
             name="fromNum"
             id="fromNum"
             value={fromInput}
-            onChange={e => setFromInput(e.target.value)}
+            onChange={e => onChangeInput(e, 'fromInput')}
             placeholder="0.00"
             className={`${style.inputSize} pl-10 bg-secondary w-205 text-white text-24 leading-42 focus:outline-none`}
           />
@@ -106,7 +134,7 @@ export function Swap() {
           <input
             type="number"
             value={toInput}
-            onChange={e => setToInput(e.target.value)}
+            onChange={e => onChangeInput(e, 'toInput')}
             name="fromNum"
             id="fromNum"
             placeholder="0.00"
@@ -185,7 +213,7 @@ export function Swap() {
           <div className="gradientText text-center cursor-pointer">View Pair Analytics</div>
         </div>
       ) : null}
-
+      <Message text={toastMsg} type="warning" isOpen={toast.value} close={toast.setFalse}></Message>
       <SelectDialog isOpen={isOpen} toggleOpen={toggleOpen}></SelectDialog>
       <ConfirmSwap isOpen={isOpenConfirm} toggleOpen={toggleOpenConfirm}></ConfirmSwap>
       <WalletSelector isOpen={isOpenWallet} toggleOpen={toggleOpenWallet}></WalletSelector>
