@@ -28,7 +28,7 @@ export function Swap() {
   const toast = useBoolean(false);
   const [toastMsg, setToastMsg] = useState('');
   const swapToken = () => {
-    if (fromInput && toInput) {
+    if (fromToken && toToken) {
       setFromToken(toToken);
       setFromInput(toInput);
       setToToken(fromToken);
@@ -71,7 +71,7 @@ export function Swap() {
     // getICPExchange();
   }, []);
   return (
-    <div className="pt-105 ">
+    <div className="pt-105 relative">
       <div className="border-1 bg-secondary mx-auto w-463  px-27 py-24 rounded-16">
         <div className=" flex justify-between items-center text-22  leading-26">
           <span></span>
@@ -217,6 +217,9 @@ export function Swap() {
       <SelectDialog isOpen={isOpen} toggleOpen={toggleOpen}></SelectDialog>
       <ConfirmSwap isOpen={isOpenConfirm} toggleOpen={toggleOpenConfirm}></ConfirmSwap>
       <WalletSelector isOpen={isOpenWallet} toggleOpen={toggleOpenWallet}></WalletSelector>
+      {/* <div className={style.Setting}>
+        <Setting></Setting>
+      </div> */}
     </div>
   );
 }

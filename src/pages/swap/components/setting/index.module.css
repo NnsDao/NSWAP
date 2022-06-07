@@ -1,0 +1,99 @@
+.wrapper {
+  width: 342px;
+  background: #1f2544;
+  border-radius: 8px;
+  padding: 24px 24px 42px 20px;
+}
+
+.settingTitle {
+  width: 100%;
+  font-size: 22px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 26px;
+  text-align: center;
+  padding-bottom: 34px;
+}
+.toleranceWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: Helvetica;
+  color: #ffffff;
+  line-height: 19px;
+  padding-bottom: 14px;
+}
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dealineWrapper {
+  padding-top: 27px;
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: Helvetica;
+  color: #ffffff;
+  line-height: 19px;
+}
+.Interface {
+  padding-top: 32px;
+  padding-bottom: 24px;
+  font-size: 20px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 24px;
+}
+
+.buttonItem {
+  background: #323a5f;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  text-align: center;
+  padding: 3px 3px;
+  border-radius: 8px;
+}
+.ToggleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ExpertWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Expert {
+  font-size: 16px;
+  font-family: Helvetica;
+  color: #ffffff;
+  line-height: 19px;
+}
+.DisableWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Multihopswrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input[type='text'] {
+  color: white;
+  padding-left: 10px;
+  line-height: 22px;
+}
+.MuiFormControlLabel-root,
+.MuiFormControlLabel-labelPlacementEnd {
+  margin-right: 0 !important;
+}
