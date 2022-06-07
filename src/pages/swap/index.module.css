@@ -36,3 +36,9 @@
 .inputSize {
   font-size: 30px;
 }
+.Setting {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-138px);
+}

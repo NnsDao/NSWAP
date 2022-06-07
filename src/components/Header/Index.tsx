@@ -23,8 +23,9 @@ export default function Header() {
     const left = [
       { item: 'Swap', route: '/' },
       { item: 'Pool', route: '/pool' },
-      { item: 'Aboutnswap', route: '/aboutnswap' },
-      { item: 'Vote', route: '/vote' },
+      // { item: 'FAQs', route: '/faqs' },
+      { item: 'Activity', route: '/activity' },
+      { item: 'subDAO', route: '/vote' },
     ];
     return (
       <>
@@ -39,7 +40,7 @@ export default function Header() {
     );
   };
 
-  const [{ address, isLogin, loginType }, dispatch] = useGlobalState();
+  const [{ address, isLogin, loginType, userICP }, dispatch] = useGlobalState();
   // const getAvatar = () => {
   //   if (loginType === 'stoic') {
   //     return '/stoic.png';
@@ -53,6 +54,8 @@ export default function Header() {
   const openLoginMenu = e => {
     setLoginAnchor(e.currentTarget);
   };
+  console.log(userICP);
+
   return (
     <>
       <header className={`${style.header} h-100 flex items-center px-50`}>
@@ -63,13 +66,17 @@ export default function Header() {
         <div className="flex-1"></div>
         <Button>
           <div className={style.balance}>
-            <div className={style.balanceText}>{'0 NS'}</div>
+            <div className={style.balanceText}>{Number(userICP) / 1e8} ICP</div>
           </div>
         </Button>
         {isLogin ? (
           <Button id="connected-button" onClick={openLoginMenu}>
             <div className={`${style.wallet} flex items-center`}>
-              <Avatar alt="Logo" sx={{ width: 24, height: 24 }} src={loginType === 'stoic' ? stoic : plug} />
+              <Avatar
+                alt="Logo"
+                sx={{ width: 24, height: 24 }}
+                src={loginType === 'stoic' ? stoic : loginType === 'plug' ? plug : ''}
+              />
               <span className="ml-8">{address.slice(0, 4) + '...' + address.slice(-4)}</span>
             </div>
           </Button>
@@ -97,7 +104,7 @@ export default function Header() {
 }
 
 const LoginAction = (props: LoginActionProps) => {
-  const [{ address, isLogin, loginType }, dispatch] = useGlobalState();
+  const [{ address, isLogin, loginType, userICP }, dispatch] = useGlobalState();
   const toast = useBoolean(false);
   const [toastMsg, setToastMsg] = useState('');
   const logout = async () => {
@@ -109,7 +116,9 @@ const LoginAction = (props: LoginActionProps) => {
       await plugLogout();
     }
     console.log(`logout`);
-    dispatch({ type: 'changeLogin', isLogin: false, address: '' });
+    dispatch({ type: 'changeLogin', loginType: '', isLogin: false, address: '', userICP: BigInt(0) });
+    console.log(loginType, 'loginType');
+
     toast.setTrue();
     setToastMsg('Logged out');
     props.close();

@@ -20,7 +20,6 @@ export async function stoicLogin() {
       .then((res: string) => {
         const addressList = JSON.parse(res);
         console.log('stoic address', addressList, 'identity', identity.getPrincipal().toText());
-
         return addressList[0].address;
       })
       .catch((err: any) => {
