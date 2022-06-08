@@ -1,8 +1,7 @@
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Avatar } from '@mui/material';
+import { Button } from '@mui/material';
 import React from 'react';
+import Account from './Account/Index';
 import style from './index.module.css';
-
 export default function Pool() {
   return (
     <div className={style.wrapper}>
@@ -18,51 +17,20 @@ export default function Pool() {
       <div className={style.Pair}>
         <div className={style.PairTitle}>Your Liquidity</div>
         <div className={style.PairButton}>
-          <div className={style.CreateButton}>
-            <div className={style.createText}>Create a Pair</div>
-          </div>
-          <div className={style.LiquidityButton}>
-            <div className={style.LiquidityText}>Add Liquidity</div>
-          </div>
+          <Button className="mr-24">
+            <div className={style.CreateButton}>
+              <div className={style.createText}>Create a Pair</div>
+            </div>
+          </Button>
+          <Button>
+            <div className={style.LiquidityButton}>
+              <div className={style.LiquidityText}>Add Liquidity</div>
+            </div>
+          </Button>
         </div>
       </div>
       <div className={style.accruedFees}>Account analytics and accrued fees</div>
-      <div className={style.AccountWrapper}>
-        <div className={style.AccountItem}>
-          <div className={style.avatarWrapper}>
-            <div className="pr-8">
-              <Avatar alt="Remy Sharp" src="" />
-            </div>
-            <div className="pr-8">
-              <Avatar alt="Remy Sharp" src="" />
-            </div>
-            <div className={style.text}>ETH/APY</div>
-          </div>
-
-          <div className={style.logo}>
-            <KeyboardArrowDownIcon
-              className="cursor-pointer"
-              sx={{ color: '#fff', fontSize: 18 }}></KeyboardArrowDownIcon>
-          </div>
-        </div>
-        <div className={style.AccountItem}>
-          <div className={style.avatarWrapper}>
-            <div className="pr-8">
-              <Avatar alt="Remy Sharp" src="" />
-            </div>
-            <div className="pr-8">
-              <Avatar alt="Remy Sharp" src="" />
-            </div>
-            <div className={style.text}>ETH/APY</div>
-          </div>
-
-          <div className={style.logo}>
-            <KeyboardArrowDownIcon
-              className="cursor-pointer"
-              sx={{ color: '#fff', fontSize: 18 }}></KeyboardArrowDownIcon>
-          </div>
-        </div>
-      </div>
+      <Account></Account>
       <div className={style.ImportWrapper}>
         <div className={style.joined}>Don’t see a pool you joined? </div>
         <div className={style.Import}> Import It</div>
