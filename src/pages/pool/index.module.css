@@ -1,0 +1,131 @@
+.wrapper {
+  width: 688px;
+  margin: 0 auto;
+  padding-top: 105px;
+}
+.Liquidity {
+  font-size: 18px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 22px;
+}
+.LiquidityInfo {
+  padding: 24px 0;
+}
+.LiquidityItem {
+  font-size: 16px;
+  font-family: Helvetica;
+  color: #7581a2;
+  line-height: 25px;
+}
+.Readmore {
+  padding-top: 24px;
+  font-size: 18px;
+  font-family: Helvetica;
+  color: #00dff7;
+  line-height: 22px;
+  text-decoration: underline #00dff7;
+  cursor: pointer;
+}
+.Pair {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 41px;
+}
+.PairTitle {
+  font-size: 24px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 29px;
+}
+.PairButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CreateButton {
+  background: #2c2f50;
+  border-radius: 27px;
+  margin-right: 24px;
+}
+.createText {
+  font-size: 20px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 24px;
+  background: linear-gradient(43deg, #0084fc 0%, #c501df 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 14px 30px;
+  cursor: pointer;
+}
+.LiquidityButton {
+  background: linear-gradient(43deg, #0084fc 0%, #c501df 100%);
+  border-radius: 27px;
+}
+.LiquidityText {
+  font-size: 20px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 24px;
+  padding: 14px 28px;
+  cursor: pointer;
+}
+.accruedFees {
+  font-size: 18px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #00dff7;
+  line-height: 22px;
+  background: linear-gradient(225deg, #32c5ff 0%, #b620e0 51%, #f7b500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.AccountWrapper {
+}
+
+.AccountItem {
+  margin-top: 16px;
+  padding: 23px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+.avatarWrapper {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  padding-right: 13px;
+}
+.ImportWrapper {
+  padding-top: 34px;
+  display: flex;
+  justify-content: center;
+}
+.joined {
+  font-size: 16px;
+  font-family: Helvetica;
+  color: #7581a2;
+  line-height: 19px;
+  padding-right: 11px;
+  cursor: pointer;
+}
+.Import {
+  font-size: 16px;
+  font-family: Helvetica-Bold, Helvetica;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 19px;
+  background: linear-gradient(225deg, #32c5ff 0%, #b620e0 51%, #f7b500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
