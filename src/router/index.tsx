@@ -12,8 +12,7 @@ const Swap = React.lazy(() => import('../pages/swap/Index'));
 // const Import = React.lazy(
 //   () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
 // );
-const Exact = React.lazy(() => import('../pages/swap/components/exactToken/Index'));
-const ConfirmSwap = React.lazy(() => import('../pages/swap/components/confirmSwap/Index'));
+const CreatePair = React.lazy(() => import('../pages/pool/createPair/Index'));
 export default function AppRouter() {
   const routes: RouteObject[] = [
     {

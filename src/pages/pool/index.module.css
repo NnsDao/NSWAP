@@ -97,6 +97,7 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 8px;
+  cursor: pointer;
 }
 .AccountTop {
   width: 100%;

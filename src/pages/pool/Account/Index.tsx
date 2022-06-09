@@ -10,11 +10,12 @@ export default function Account() {
   ];
   const [data, setData] = useState(source);
   const toogleItem = index => {
+    //@ts-ignore
     setData(data => {
       let item = JSON.stringify(data);
       item = JSON.parse(item);
+      //@ts-ignore
       item[index].isOpen = !item[index].isOpen;
-
       console.log(index, item);
       return item;
     });
@@ -22,7 +23,7 @@ export default function Account() {
   return (
     <div className={style.AccountWrapper}>
       {data.map((item, index) => (
-        <div className={style.AccountItem} key={item.name}>
+        <div className={style.AccountItem} key={item.name} onClick={() => toogleItem(index)}>
           <div className={style.AccountTop}>
             <div className={style.avatarWrapper}>
               <div className="pr-8">
@@ -34,7 +35,7 @@ export default function Account() {
               <div className={style.text}>ETH/APY</div>
             </div>
 
-            <div className={item.isOpen ? style.logo : style.logoReverse} onClick={() => toogleItem(index)}>
+            <div className={item.isOpen ? style.logo : style.logoReverse}>
               <KeyboardArrowDownIcon
                 className="cursor-pointer"
                 sx={{ color: '#fff', fontSize: 18 }}></KeyboardArrowDownIcon>
