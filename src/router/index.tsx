@@ -33,7 +33,7 @@ export default function AppRouter() {
     },
     {
       path: '/',
-      element: <Pool></Pool>,
+      element: <CreatePair></CreatePair>,
     },
     {
       path: '/pool',
