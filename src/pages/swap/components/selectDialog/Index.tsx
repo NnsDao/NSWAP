@@ -8,6 +8,8 @@ export default function SelectDialog(props: Prop) {
   const { isOpen, toggleOpen } = props;
   const [swapState, dispatch] = useSwapState();
   const data = [1, 2, 3, 4, 5, 6, 7];
+  console.log(useSwapState());
+
   const onCloseSelector = (val?: any) => {
     console.log(val);
     toggleOpen();

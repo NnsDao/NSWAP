@@ -2,23 +2,22 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Avatar, Button } from '@mui/material';
 import React, { useState } from 'react';
 import style from '../index.module.css';
-
+const source = [
+  { name: '1', isOpen: false },
+  { name: '2', isOpen: false },
+];
 export default function Account() {
-  const source = [
-    { name: '1', isOpen: false },
-    { name: '2', isOpen: false },
-  ];
   const [data, setData] = useState(source);
   const toogleItem = index => {
     //@ts-ignore
-    setData(data => {
-      let item = JSON.stringify(data);
-      item = JSON.parse(item);
-      //@ts-ignore
-      item[index].isOpen = !item[index].isOpen;
-      console.log(index, item);
-      return item;
-    });
+    // setData(data => {
+    //   console.log(index, data);
+    //   data[index].isOpen = !data[index].isOpen;
+    //   return [...data];
+    // });
+    console.log(index, data);
+    data[index].isOpen = !data[index].isOpen;
+    setData([...data]);
   };
   return (
     <div className={style.AccountWrapper}>

@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
-
 export default defineConfig(({ command, mode }) => {
   const prodEnv = mode === 'production' && process.env.canisterType === 'online';
   console.log('command,mode', command, mode, process.env.canisterType, prodEnv);
@@ -23,14 +23,12 @@ export default defineConfig(({ command, mode }) => {
       }
       return plugin;
     })([react()]),
-    // resolve: {
-    //   alias: {
-    //     // Here we tell Vite the "fake" modules that we want to define
-    //     '@': path.resolve(__dirname, './src/'),
-    //     '@common': path.resolve(__dirname, './src/common'),
-    //     '@idlFactory': path.resolve(__dirname, './src/idlFactory'),
-    //   },
-    // },
+    resolve: {
+      alias: {
+        // Here we tell Vite the "fake" modules that we want to define
+        '@': resolve(__dirname, './src/'),
+      },
+    },
     build: {
       outDir: 'dist',
       cssCodeSplit: true,

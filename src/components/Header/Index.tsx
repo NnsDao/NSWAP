@@ -54,8 +54,6 @@ export default function Header() {
   const openLoginMenu = e => {
     setLoginAnchor(e.currentTarget);
   };
-  console.log(userICP);
-
   return (
     <>
       <header className={`${style.header} h-100 flex items-center px-50`}>

@@ -12,6 +12,7 @@ const Swap = React.lazy(() => import('../pages/swap/Index'));
 // const Import = React.lazy(
 //   () => import('../pages/swap/components/selectToken/components/importDialog/components/Index')
 // );
+const Asset = React.lazy(() => import('@/pages/pool/asset/Index'));
 const CreatePair = React.lazy(() => import('../pages/pool/createPair/Index'));
 export default function AppRouter() {
   const routes: RouteObject[] = [
@@ -33,7 +34,11 @@ export default function AppRouter() {
     },
     {
       path: '/',
-      element: <CreatePair></CreatePair>,
+      element: <Swap></Swap>,
+    },
+    {
+      path: '/swap',
+      element: <Swap></Swap>,
     },
     {
       path: '/pool',

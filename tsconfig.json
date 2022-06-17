@@ -20,7 +20,8 @@
     "baseUrl": "./",
     "types": ["vite/client"],
     "paths": {
-      "@nnsdao/actorservice/*": ["./node_modules/@nnsdao/actorservice/src/*"]
+      "@nnsdao/actorservice/*": ["./node_modules/@nnsdao/actorservice/src/*"],
+      "@/*": ["src/*"]
     }
   },
   "include": ["src"],

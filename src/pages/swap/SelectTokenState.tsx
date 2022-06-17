@@ -20,7 +20,6 @@ const reducer = (state: any, action: { type: any; value: any }) => {
       };
   }
 };
-// @ts-ignore
 const SwapState = ({ children }) => {
   return <StateContext.Provider value={useReducer(reducer, initialState)}>{children}</StateContext.Provider>;
 };

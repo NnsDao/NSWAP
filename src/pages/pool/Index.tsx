@@ -1,8 +1,14 @@
 import { Button } from '@mui/material';
 import React from 'react';
+import { useBoolean } from 'usehooks-ts';
+import SwapState from '../swap/SelectTokenState';
 import Account from './Account/Index';
+import CreatePair from './createPair/Index';
 import style from './index.module.css';
-export default function Pool() {
+import Receive from './receive/Index';
+export function Pool() {
+  const { value: isOpen, toggle: toggleOpen } = useBoolean(false);
+
   return (
     <div className={style.wrapper}>
       <div className={style.Liquidity}>Liquidity provider rewards </div>
@@ -17,7 +23,7 @@ export default function Pool() {
       <div className={style.Pair}>
         <div className={style.PairTitle}>Your Liquidity</div>
         <div className={style.PairButton}>
-          <Button className="mr-24">
+          <Button className="mr-24" onClick={toggleOpen}>
             <div className={style.CreateButton}>
               <div className={style.createText}>Create a Pair</div>
             </div>
@@ -35,6 +41,15 @@ export default function Pool() {
         <div className={style.joined}>Don’t see a pool you joined? </div>
         <div className={style.Import}> Import It</div>
       </div>
+      <CreatePair isOpen={isOpen} toggleOpen={toggleOpen}></CreatePair>
+      <Receive></Receive>
     </div>
+  );
+}
+export default function PoolWrapper() {
+  return (
+    <SwapState>
+      <Pool></Pool>
+    </SwapState>
   );
 }
