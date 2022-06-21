@@ -14,6 +14,7 @@ const Swap = React.lazy(() => import('../pages/swap/Index'));
 // );
 const Asset = React.lazy(() => import('@/pages/pool/asset/Index'));
 const CreatePair = React.lazy(() => import('../pages/pool/createPair/Index'));
+const Success = React.lazy(() => import('@/pages/swap/components/success/Index'));
 export default function AppRouter() {
   const routes: RouteObject[] = [
     {
